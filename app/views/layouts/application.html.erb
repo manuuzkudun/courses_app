@@ -10,6 +10,12 @@
   </head>
 
   <body style="margin: 40px;">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+      <%= msg %>
+    </div>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
