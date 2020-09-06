@@ -1,8 +1,12 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    @courses = Course.order(:title)
   end
 
-  def new
+  def upvote
+    course = Course.find(params[:id])
+    course.upvote!
+    
+    redirect_to root_path
   end
 end

@@ -1,5 +1,4 @@
-<h1>Course list</h1>
-<p>List of available courses</p>
+<h2>List of available courses</h2>
 <div class="row">
   <% @courses.each do |course| %>
     <div class="card mb-3" style="max-width: 540px;margin: 20px;">
@@ -12,14 +11,14 @@
             <h5 class="card-title"><%= course.title.capitalize %></h5>
             <p class="card-text">
               <span class="text-muted"><%= course.votes %> likes</span>
-              <button type="button" class="btn btn-primary btn-sm">+1</button>
+              <%= link_to '+1', upvote_course_path(course), method: :patch, class: 'btn btn-primary btn-sm', remote: true %>
             </p>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
             <div class="text-right" style="margin-top: 40px">
               <h6 class="card-subtitle mb-2 text-muted"><%= course.professor.email %></h6>
               <p class="card-text">
                 <span class="text-muted"><%= course.professor.votes %> likes</span>
-                <button type="button" class="btn btn-primary btn-sm">+1</button>
+                <%= link_to '+1', upvote_professor_path(course.professor), method: :patch, class: 'btn btn-primary btn-sm', remote: true %>
               </p>
             </div>
           </div>
